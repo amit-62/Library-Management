@@ -1,11 +1,19 @@
 package com.amit.LibManagement.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Date;
 
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@Builder
 public class Txn {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

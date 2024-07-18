@@ -1,12 +1,21 @@
 package com.amit.LibManagement.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Date;
 import java.util.List;
 
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@Builder
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +34,6 @@ public class Author {
     private Date updatedOn;
 
     @OneToMany(mappedBy = "author")
+    @JsonIgnoreProperties(value="author")
     private List<Book> bookList;
 }
