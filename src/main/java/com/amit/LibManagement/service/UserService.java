@@ -26,4 +26,8 @@ public class UserService {
         user.setUserType(UserType.STUDENT);
         return userRepositary.save(user);
     }
+
+    public User getStudentByPhoneNo(String userPhoneNo){
+        return userRepositary.findByPhoneNoAndUserType(userPhoneNo, UserType.STUDENT);
+    }
 }
