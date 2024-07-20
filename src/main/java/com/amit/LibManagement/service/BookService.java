@@ -47,6 +47,11 @@ public class BookService {
                     case EQUAlS :
                         return bookRepository.findByBookType(BookType.valueOf(value));
                 }
+            case BOOK_NO:
+                switch (operator){
+                    case EQUAlS :
+                        return bookRepository.findByBookNo(value);
+                }
 //            case AUTHOR_NAME:
 //                switch (operator){
 //                    case EQUAlS :
@@ -54,5 +59,9 @@ public class BookService {
 //                }
         }
         return new ArrayList<>();
+    }
+
+    public void updateBookData(Book bookFromDB) {
+        bookRepository.save(bookFromDB);
     }
 }
