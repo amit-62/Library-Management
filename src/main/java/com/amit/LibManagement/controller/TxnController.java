@@ -17,8 +17,14 @@ public class TxnController {
     private TxnService txnService;
 
     @PostMapping("/create")
-    public ResponseEntity<String> create(@RequestBody @Valid TxnRequest txnRequest){
+    public ResponseEntity<String> create(@RequestBody @Valid TxnRequest txnRequest) throws Exception {
         String txnId = txnService.create(txnRequest);
         return new ResponseEntity<>(txnId, HttpStatus.OK);
+    }
+
+    @PutMapping("/return")
+    public ResponseEntity<Integer> returnBook(@RequestBody @Valid TxnRequest txnRequest) throws Exception {
+        int fine = txnService.returnBook(txnRequest);
+        return new ResponseEntity<>(fine, HttpStatus.OK);
     }
 }

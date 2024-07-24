@@ -21,6 +21,8 @@ public class Txn {
 
     private String txnId;
 
+    private int settlementAmount;
+
     @CreationTimestamp
     private Date createdOn;
 
